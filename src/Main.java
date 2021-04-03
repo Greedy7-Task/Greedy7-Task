@@ -18,10 +18,12 @@ public class Main {
                     G[j][i] = element;
                 }
             }
-            System.out.printf("시작 정점 번호(0~%d): ", n);
-            int start = scan.nextInt();
-            ShortestPath(G, start);
         }
+        System.out.printf("시작 정점 번호(0~%d): ", n - 1);
+        int start = scan.nextInt();
 
+        Dijkstra dijkstra = new Dijkstra();
+        int[] answer = dijkstra.ShortestPath(G, start);
+        dijkstra.printDistance(answer, start);
     }
 }
