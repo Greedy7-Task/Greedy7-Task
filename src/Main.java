@@ -6,7 +6,7 @@ public class Main {
         Scanner scan = new Scanner(System.in);
         System.out.print("정점의 개수를 입력하세요: ");
         int n = scan.nextInt();
-        int[][] G = new int[n][n];  // n = 점의 개수, m = 선분의 개수
+        int[][] G = new int[n][n];  // n = 점의 개수, m = 간선의 개수
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 int element = 0;
@@ -18,8 +18,10 @@ public class Main {
                     G[j][i] = element;
                 }
             }
+            System.out.printf("시작 정점 번호(0~%d): ", n);
+            int start = scan.nextInt();
+            ShortestPath(G, start);
         }
-
 
     }
 }
