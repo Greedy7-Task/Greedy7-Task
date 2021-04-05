@@ -48,9 +48,9 @@ public class Dijkstra implements ShortestPath {
     }
 
     public void printDistance(int[] D, int s) {
-        System.out.printf("정점 %d부터의 거리", s);
+        System.out.printf("정점 %d 부터의 거리", s);
         System.out.println();
-        for (int i : D)
+        for (int i = 0; i < D.length; i++)
             if (i != s) {
                 System.out.printf("%d번 점: %d", i, D[i]);
                 System.out.println();
