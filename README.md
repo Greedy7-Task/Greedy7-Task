@@ -18,6 +18,8 @@ start점에서 시작하고 나머지 a,b,fin 사이의 거리는  무한대로 
 다음은 코드에 대한 상세 설명으로 이는 각 부분을 맡은 사람이 작성하였다.
 책 p.108에 나와 있는 의사코드를 바탕으로 팀원들 끼리의 과업을 분배하였다.
 
+---
+
 ### ShortestPath.java (최종민 구현)
 
 ```java
@@ -47,8 +49,6 @@ public interface ShortestPath {
 `Scanner` 클래스를 이용해 점의 개수를 변수 `n`에 입력받는다.
 또한 이를 이용해 변수 `start`에 출발점이될 점의 인덱스를 입력받는다.
 
----
-
 ```java
 		int[][] G = new int[n][n];
         for (int i = 0; i < n; i++)
@@ -75,8 +75,6 @@ public interface ShortestPath {
 `random`이 0일 때만 `Integer.MAX_VALUE`를 넣어 무한대를 표현하고, 따라서 1/5 확률로 직접 두 점이 연결되어 있지 않게 된다.
 `random`이 0이 아닐때, 1부터 10의 난수를 넣어 직접 연결된 두 점의 사이의 거리를 표현했다.
 
----
-
 ```java
         Dijkstra dijkstra = new Dijkstra();
         int[] answer = dijkstra.find_ShortestPath(G, start);
@@ -84,8 +82,6 @@ public interface ShortestPath {
 ```
 
 `Dijkstra.java` 파일에 정의되어 있는 `Dijkstra` 클래스의 `dijkstra.find_ShortestPath(G, start)` 메소드를 호출한다.
-
----
 
 ```java
         int startTime = (int) System.currentTimeMillis();
@@ -118,8 +114,6 @@ public interface ShortestPath {
 `D`는 시작점을 기준으로 각 점들까지의 최단 거리를 저장하는 1차원 배열이다.
 `init()` 메소드를 호출해 `init()`에서 만들어진 배열의 주소를 `D`가 가리키게 한다.
  `visited`는 방문한 점을 `true`로 표시하는 `boolean` 타입의 1차원 배열이다.
-
----
 
 #### `init()`과 `printDistance()` (최종민 구현)
 
