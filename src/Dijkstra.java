@@ -25,7 +25,17 @@ public class Dijkstra implements ShortestPath {
                     min_Index = i;
                     min = D[i];
 
-
+                    min_Index = i;
+                }
+            }
+            for (int i = 0; i < a; i++) {
+                if(!visited[i] && INF > D[i]) {
+                }
+            }
+            for (int j = 0; j < a; j++) {
+                if(!visited[j] && G[min_Index][j] != 0 && D[min_Index] + G[min_Index][j] < D[j])
+                    D[j] = D[min_Index] + G[min_Index][j]; }
+            visited[min_Index] = true;
 
                     return D;
     }
@@ -55,32 +65,6 @@ public class Dijkstra implements ShortestPath {
             }
     }
 
-    @Override
-    public void convert(int[][] G)
-        }
-
-    }
-    D[0] = 0;
-            for (int i = 0; i < V-1; i++) {
-        int min = Integer.MAX_VALUE;
-        int index = -1;
-        for (int j = 0; j < V; j++) {
-            if(!check[j] && min > D[j]) {
-                min = D[j];
-                index = j;
-            }
-        }
-        for (int j = 0; j < V; j++) {
-            if(!check[j] && min > D[j]) {
-                min = D[j];
-                index = j;
-            }
-        }
-        for (int j = 0; j < V; j++) {
-            if(!check[j] && adj[index][j] != 0 && D[index] + adj[index][j] < D[j])
-                D[j] = D[index] + adj[index][j]; }
-        check[index] = true;
-    } System.out.println(Arrays.toString(D));
 
 }
 }
