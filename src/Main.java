@@ -23,7 +23,7 @@ public class Main {
         int start = scan.nextInt();
 
         Dijkstra dijkstra = new Dijkstra();
-        int[] answer = dijkstra.ShortestPath(G, start);
+        int[] answer = dijkstra.find_ShortestPath(G, start);
         dijkstra.printDistance(answer, start);
     }
 }

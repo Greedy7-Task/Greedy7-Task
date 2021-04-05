@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class Dijkstra implements ShortestPath {
     @Override
-    public int[] ShortestPath(int[][] G, int s) {
+    public int[] find_ShortestPath(int[][] G, int s) {
         int vertex = G.length;
         int edge = getEdgeCount(G);
         int[] D = init(vertex, s);
