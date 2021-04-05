@@ -1,43 +1,43 @@
 import java.util.Arrays;
-import java.util.Scanner;
+import java.util.stream.IntStream;
 
 public class Dijkstra implements ShortestPath {
-    private int n;
-    int s = 0;
-    private int a;
-
     @Override
     public int[] find_ShortestPath(int[][] G, int s) {
         int vertex = G.length;
-        int edge = getEdgeCount(G);
         int[] D = init(vertex, s);
+        boolean[] visited = new boolean[vertex];
 
-        boolean[] visited = new boolean[n+1]; //방문한 점(인접한 점과 거리가 최소인 점)
+        // IntStream.of(D).anyMatch(x -> x == INF)
+        while (true) {
+            int min = INF;
+            int min_Index = -1;
 
-
-        //방문하지 않은 점(거리가 확정되지 않은 점) 찾아서 최소값 D[v]에 거리 확정하기
-        for(int a = 0; a < n+1; a++) {
-            int min_Index = -1;//최소 가중치가 저장된 배열 D의 인덱스 값(유효하지 않은 인덱스 저장 X)
-            int min = INF;//확정되지 않은 점의 가중치는 무한대로 초기화한다.
-
-            for (int i = 0; i < n + 1; i++) {
-                if (!visited[i] && min > D[i]){
-                    min_Index = i;
-                    min = D[i];
-
-                    min_Index = i;
+            for (int a = 0; a < vertex; a++)
+                if (!visited[a] && min > D[a]) {  // 방문하지 않았고, 거리가 무한이 아니고, 전보다 가까이 있으면
+                    min_Index = a;
+                    min = D[a];
                 }
-            }
-            for (int i = 0; i < a; i++) {
-                if(!visited[i] && INF > D[i]) {
-                }
-            }
-            for (int j = 0; j < a; j++) {
-                if(!visited[j] && G[min_Index][j] != 0 && D[min_Index] + G[min_Index][j] < D[j])
-                    D[j] = D[min_Index] + G[min_Index][j]; }
+            if (min_Index == -1)
+                break;
             visited[min_Index] = true;
 
-                    return D;
+            // 4. 최단거리 갱신
+            for (int i = 0; i < vertex; i++) {
+                if (!visited[i] && INF > D[i]) {
+
+                }
+            }
+
+            for (int j = 0; j < vertex; j++)
+                if (!visited[j] && G[min_Index][j] != 0 && D[min_Index] + G[min_Index][j] < D[j]) {
+                    D[j] = D[min_Index] + G[min_Index][j];
+                }
+
+
+        }
+
+        return D;
     }
 
     public int[] init(int v, int s) {
@@ -45,14 +45,6 @@ public class Dijkstra implements ShortestPath {
         Arrays.fill(distance_array, INF);
         distance_array[s] = 0;
         return distance_array;
-    }
-
-    public int getEdgeCount(int[][] G) {
-        int edge = 0;
-        for (int i = 0; i < G.length; i++)
-            if (G[0][i] != 0)
-                edge++;
-        return edge;
     }
 
     public void printDistance(int[] D, int s) {
@@ -64,9 +56,4 @@ public class Dijkstra implements ShortestPath {
                 System.out.println();
             }
     }
-
-
-}
-}
-
 }

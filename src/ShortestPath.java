@@ -3,6 +3,5 @@ public interface ShortestPath {
 
     int[] find_ShortestPath(int[][] G, int s);
     int[] init(int v, int s);
-    int getEdgeCount(int[][] G);
     void printDistance(int[] D, int s);
 }
