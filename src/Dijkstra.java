@@ -5,12 +5,17 @@ public class Dijkstra implements ShortestPath {
     public int[] ShortestPath(int[][] G, int s) {
         int vertex = G.length;
         int edge = getEdgeCount(G);
-        int[] D = new int[vertex];
-        Arrays.fill(D, INF);
-        D[s] = 0;
+        int[] D = init(vertex, s);
 
 
         return D;
+    }
+
+    public int[] init(int v, int s) {
+        int[] distance_array = new int[v];
+        Arrays.fill(distance_array, INF);
+        distance_array[s] = 0;
+        return distance_array;
     }
 
     public int getEdgeCount(int[][] G) {
