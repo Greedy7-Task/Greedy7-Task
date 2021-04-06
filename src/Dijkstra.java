@@ -30,7 +30,7 @@ public class Dijkstra implements ShortestPath {
                 // 이미 방문했거나 연결되지 않은 정점 스킵
 
                 //새로 조사한 정점의 최단 거리 계산
-                int w = D[min_Index] + D(i); //새로 조사한 정점까지의 거리 = V_min까지의 거리+ 가중치
+                int w = D[min_Index] + D[i]; //새로 조사한 정점까지의 거리 = V_min까지의 거리+ 가중치
                 //만약 기존 최단 거리가 새로 조사한 최단거리보다 크면 갱신
 
                 if (w < D[min_Index])
