@@ -98,6 +98,7 @@ public interface ShortestPath {
 따라서 `Dijkstra` 알고리즘을 수행하기 전과 후에 각각 `startTime`, `endTime`이라는 변수에 저장해, 두 변수의 차를 이용하여 프로그램이 수행하는데 걸리는 시간 `processTime`을 계산한다.
 계산한 `processTime`을 `System.out.printf()` 메소드를 이용해 출력한다.
 
+## Dijkstra.java
 
 #### 1번 설명 (최종민 구현)
 
@@ -115,7 +116,7 @@ public interface ShortestPath {
 `init()` 메소드를 호출해 `init()`에서 만들어진 배열의 주소를 `D`가 가리키게 한다.
 
 
-### 2번,3번 설명(이채원 구현)
+#### 2번,3번 설명(이채원 구현)
 
 ```java
 
