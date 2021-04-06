@@ -17,11 +17,11 @@ public class Main {
                 if (i == j) {
                     G[i][j] = element;
                 } else {
-                    int random = (int) (Math.random() * 4);
+                    int random = (int) (Math.random() * 3);
                     if (random == 0) {
                         element = Integer.MAX_VALUE;
                     } else {
-                        element = (int) (Math.random() * 9) + 1;
+                        element = (int) (Math.random() * 49) + 1;
                     }
                     G[i][j] = element;
                     G[j][i] = element;
