@@ -98,14 +98,14 @@ public interface ShortestPath {
 따라서 `Dijkstra` 알고리즘을 수행하기 전과 후에 각각 `startTime`, `endTime`이라는 변수에 저장해, 두 변수의 차를 이용하여 프로그램이 수행하는데 걸리는 시간 `processTime`을 계산한다.
 계산한 `processTime`을 `System.out.printf()` 메소드를 이용해 출력한다.
 
+
 #### 1번 설명 (최종민 구현)
 
 ```java
 	public int[] find_ShortestPath(int[][] G, int s) {
 	int vertex = G.length;
         int[] D = init(vertex, s);
-        boolean[] visited = new boolean[vertex];
-		
+      
 	...
 ```
 
@@ -113,8 +113,42 @@ public interface ShortestPath {
 `G`의 열의 개수가 점의 수와 같으므로(행으로 연산해도 같은 값을 얻을 수 있다), `G.length` 메소드를 호출해 점의 개수를 나타내는 변수 `vertex`에 저장한다.
 `D`는 시작점을 기준으로 각 점들까지의 최단 거리를 저장하는 1차원 배열이다.
 `init()` 메소드를 호출해 `init()`에서 만들어진 배열의 주소를 `D`가 가리키게 한다.
- `visited`는 방문한 점을 `true`로 표시하는 `boolean` 타입의 1차원 배열이다.
 
+
+### 2번,3번 설명(이채원 구현)
+
+```java
+
+	 boolean[] visited = new boolean[vertex];
+	 
+while (true) {
+            int min = INF;
+            int min_Index = -1;
+
+            for (int a = 0; a < vertex; a++)
+                if (!visited[a] && min > D[a]) {  
+                    min_Index = a;
+                    min = D[a];
+                }
+            if (min_Index == -1)
+                break;
+            visited[min_Index] = true;
+```
+
+`visited`는 방문한 점을 `true`로 표시하는 `boolean` 타입의 1차원 배열이다. `while`문은 출발점 `s`로부터 최단 거리가 확정되지 않은 점이있으면 아래의 `for`문을 반복하는 것이다. 
+`min`은 최단 거리로 모든 점들간의 거리를 `INF`로 초기화한다. `min_Index`는 현재점이 출발점이면 유효하지 않으므로 `-1`로 초기화한다.
+만약 a라는 점을 방문하지 않았고 해당 점과 출발점 사이의 거리가 무한대보다 작다면 `min_Index`는 `a`로 확정하고, 점 a와 출발점 사이의 거리(최솟값)를 1차원 배열`D`에 갱신한다.
+`min_Index`는 처음에만 `-1`이어야하기 때문에 `min_Index`가 `-1`인경우 `while`문을 탈출한다. 거리가 확정된 점들은 방문한 점이 된다.
+
+
+
+
+### 4번 설명(김민지)
+
+
+
+
+ 
 #### `init()`과 `printDistance()` (최종민 구현)
 
 ```java
@@ -148,44 +182,7 @@ public interface ShortestPath {
 ---
 
 
-1번 설명
 
-
-
-
-
-
-
-```java
-while (true) {
-            int min = INF;
-            int min_Index = -1;
-
-            for (int a = 0; a < vertex; a++)
-                if (!visited[a] && min > D[a]) {  // 방문하지 않았고, 거리가 무한이 아니고, 전보다 가까이 있으면
-                    min_Index = a;
-                    min = D[a];
-                }
-            if (min_Index == -1)
-                break;
-            visited[min_Index] = true;
-```
-
-
-위의 코드는 거리가 확정되지 않은 점들의 거리를 무한대로 초기화하는 점이다. min_Index는 현재점이 출발점이면 유효하지 않으므로 -1이라고 한다. 
-만약 a라는 점을 방문하지 않았고 해당 점과 출발점 사이의 거리가 무한대보다 작다면 min_Index는 a로 하고, 점 a와 출발점 사이의 거리(최솟값)를 배열 D에 갱신한다.
-
-min_Index는 처음에만 -1이어야하기 때문에 min_Index가 -1인경우 while문을 탈출한다.
-그리고 거리가 확정된 점들은 방문한 점이 된다. 이제 현재 점에서 방문하지 않은 점 즉, 거리가 확정되지 않은 점들에 대해서 거리를 확정하는 코드를 보자.
-
-
-
-
-
-
-
-
-4번 설명
 
 
 
@@ -195,11 +192,11 @@ min_Index는 처음에만 -1이어야하기 때문에 min_Index가 -1인경우 w
 ## 성능 검사
 
 
-이론 상 다익스트라 알고리즘의 시간 복잡도를 알아보자.
+다익스트라 알고리즘의 시간 복잡도를 알아보자.
 최소 거리를 가지는 점을 찾는데 1차원 배열 D에서 최솟값을 찾는 것이므로 O(n)시간이 걸리고, 최소거리를 갖는 점에 연결되는 점의 수는 최대 n-1개이므로, 배열 D를 개인하는데 걸리는 시간은 O(n)dldek.
-따라서 해당 알고리즘의 이론 상 시간 복잡도는 (n-1)*{O(n)+O(n)} = O(n^2)이다.
+따라서 해당 알고리즘의 시간 복잡도는 (n-1)*{O(n)+O(n)} = O(n^2)이다.
 
-이론과 팀이 짠 코드의 시간 복잡도를 비교하기 위해서 실제 시간 복잡도를 그래프로 나타내 보았다. 다음은 실제 팀7이 구현한 알고리즘의 시간복잡도를 나타낸 그래프 이다.
+위의 시간복잡도와 팀이 짠 코드의 시간 복잡도를 비교하기 위해서 실제 시간 복잡도를 그래프로 나타내 보았다. 다음은 실제 팀7이 구현한 알고리즘의 시간복잡도를 나타낸 그래프 이다.
 ![](그래프 주소)
 위의 그래프는 점근적으로 O(n^2)과 일치한다. //일치 안하면 뺌
 
@@ -211,3 +208,5 @@ min_Index는 처음에만 -1이어야하기 때문에 min_Index가 -1인경우 w
 그림 - 네이버 블로그 <https://blog.naver.com/h111922/221191766325>
 
 책- 알기쉬운 알고리즘, 생능 출판사, 양성봉 
+
+
