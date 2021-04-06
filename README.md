@@ -147,10 +147,8 @@ while (true) {
 ### 4번 설명(김민지 구현)
 
 '''java
-for (int next = 0; next < vertex; next++)
-            {
 
-
+for (int next = 0; next < vertex; next++){
                 if (!visited[next] || INF == D[next])
                     continue;
                 // 이미 방문했거나 연결되지 않은 정점 스킵
