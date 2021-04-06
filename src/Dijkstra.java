@@ -24,15 +24,29 @@ public class Dijkstra implements ShortestPath {
 
             // 4. 최단거리 갱신
             for (int i = 0; i < vertex; i++) {
-                if (!visited[i] && INF > D[i]) {
 
-                }
+                if (!visited[i] && INF > D[i])
+                    continue;
+                // 이미 방문했거나 연결되지 않은 정점 스킵
+
+                //새로 조사한 정점의 최단 거리 계산
+                int w = D[min_Index] + D(i); //새로 조사한 정점까지의 거리 = V_min까지의 거리+ 가중치
+                //만약 기존 최단 거리가 새로 조사한 최단거리보다 크면 갱신
+
+                if (w < D[min_Index])
+                {
+                    D[min_Index] = w;
+                   D[i] = min_Index; //출발 정점으로부터의 최단거리 = 새로 나온 거리
+
+               }
             }
-
+/*
             for (int j = 0; j < vertex; j++)
                 if (!visited[j] && G[min_Index][j] != 0 && D[min_Index] + G[min_Index][j] < D[j]) {
                     D[j] = D[min_Index] + G[min_Index][j];
                 }
+
+ */
 
 
         }
