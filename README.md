@@ -224,7 +224,7 @@ while (true) {
 
 ![](https://postfiles.pstatic.net/MjAyMTA0MDZfMjMy/MDAxNjE3NzEzMzAxODQz.E_xlE5ygjEN_46RNBRxrFNBAmsbrmBFqBTpxAZbdjfAg.NFXTRsCZem3Tm4ARtfn46YbFRlyxSrP1cXq0MBx5H1og.PNG.codnjs060/image.png?type=w773)
 
-위의 그래프는 `O(n^2)`의 형태로 표현된다.
+위의 그래프는 `O(n^2)` (n>0)의 형태로 표현된다.
 
 
 
