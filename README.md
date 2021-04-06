@@ -10,7 +10,7 @@
 
 ![](https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxODAxMjNfMTA5%2FMDAxNTE2NzAxNDI5NjI5.VD9gYdLpyA4ZB0w9VKFR0k-neSOgDqSlYIGQxh1PdVYg.Ez2Eyg8E-ejPRlNGrX47syinhhS4xAD4xJJ_PNUEuVIg.JPEG.h111922%2F%25B0%25E6%25B7%25CE%25B1%25D7%25B8%25B2.JPG&type=sc960_832)
 
-start점에서 시작하고 나머지 a,b,fin 사이의 거리는  무한대로 초기화 하여 점 간의 거리를 확정하지 않은 상태에서 최솟값을 찾아 나가는 알고리즘이다.
+start점에서 시작하고 나머지 a,b,fin 사이의 거리는  무한대로 초기화 하여 점 간의 거리를 확정하지 않은 상태에서 최솟값을 찾아 최단경로를 확정하는 알고리즘이다.
 
 
 ## 코드 설명
