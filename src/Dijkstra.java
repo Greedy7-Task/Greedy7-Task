@@ -36,10 +36,10 @@ public class Dijkstra implements ShortestPath {
                     continue;
 
                 // 새로 조사된 정점의 최단 거리 계산
-                int w = D[min_Index] + G[min_Index, i];
-                if (w < D[i]) {
-                    D[i] = w;
-                    parent[i] = min_Index;
+                int w = D[min_Index] + G[min_Index, next];
+                if (w < D[next]) {
+                    D[next] = w;
+                    parent[next] = min_Index;
                 }
             }
         }
