@@ -148,21 +148,22 @@ while (true) {
 
 ```java
 
-for (int next = 0; next < vertex; next++)
-            {
-                if (!visited[next] || INF == D[next])
+for (int i = 0; i < vertex; i++) {
+                if (G[min_Index][i] == INF)
                     continue;
-                int w = D[min_Index] + D[next];
-                if (w < D[min_Index])
-                {
-                    D[next] = w;
-                    parent[next] = min_Index;
-               }
+                if (visited[i])
+                    continue;
+                int temp_distance = D[min_Index] + G[i][min_Index];
+                if (temp_distance < D[i]) {
+                    D[i] = temp_distance;
+                    P[i] = min_Index;
+                }
             }
         }
-        return D; 
+        return D;
+    }
 ```     
-이미 방문했거나 연결되지 않은 정점을 `if`를 이용하여 스킵한 뒤, 새로 조사한 정점까지의 길이를 조사한다. 
+`INF`를 이용하여 연결되지 않은 정점을, `visited`를 이용하여 이미 방문했던 스킵한 뒤, 새로 조사한 정점까지의 길이를 조사한다. 
 새로 조사한 정점인 `w`의 최소 거리 계산을 출발점으로부터 경유하는 점까지의 거리인 `D[min_Index]`와 경유하는 점부터  
 새로 조사한 정점까지의 거리인 `D[next]`, 가중치를 더해 계산한다.  
 그 후, 기존 최단 거리가 새로 조사한 최단거리보다 크다면 갱신한다.  
