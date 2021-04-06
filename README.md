@@ -39,18 +39,18 @@ public interface ShortestPath {
 
 이 파일의 `Main` 클래스에 `public static void main(String[] args)` 메소드에 관한 설명이다.
 ```java
-		Scanner scan = new Scanner(System.in);
+	Scanner scan = new Scanner(System.in);
         System.out.print("정점의 개수를 입력하세요: ");
         int n = scan.nextInt();
         System.out.printf("시작 정점 번호(0~%d): ", n - 1);
-		int start = scan.nextInt();
+	int start = scan.nextInt();
 ```
 
 `Scanner` 클래스를 이용해 점의 개수를 변수 `n`에 입력받는다.
 또한 이를 이용해 변수 `start`에 출발점이될 점의 인덱스를 입력받는다.
 
 ```java
-		int[][] G = new int[n][n];
+	int[][] G = new int[n][n];
         for (int i = 0; i < n; i++)
             for (int j = 0; j < n; j++) {
                 int element = 0;
@@ -86,9 +86,9 @@ public interface ShortestPath {
 ```java
         int startTime = (int) System.currentTimeMillis();
 		
-		...
+	...
 		
-		int endTime = (int) System.currentTimeMillis();
+	int endTime = (int) System.currentTimeMillis();
         int processTime = endTime - startTime;
         System.out.printf("수행 시간: %d sec, %d ms",processTime/1000, processTime % 1000);
 ```
@@ -102,11 +102,11 @@ public interface ShortestPath {
 
 ```java
 	public int[] find_ShortestPath(int[][] G, int s) {
-		int vertex = G.length;
+	int vertex = G.length;
         int[] D = init(vertex, s);
         boolean[] visited = new boolean[vertex];
 		
-		...
+	...
 ```
 
 `find_ShortestPath()` 메소드는 그래프를 나타내는 2차원 배열 `G`와 시작점의 인덱스인 `s`를 매개변수로 받아온다.
