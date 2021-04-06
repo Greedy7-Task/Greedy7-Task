@@ -147,29 +147,21 @@ while (true) {
 ### 4번 설명(김민지 구현)
 
 '''java
-
-for (int next = 0; next < vertex; next++){
+ for (int next = 0; next < vertex; next++)
+            {
                 if (!visited[next] || INF == D[next])
                     continue;
-                // 이미 방문했거나 연결되지 않은 정점 스킵
-
-                //새로 조사한 정점의 최단 거리 계산
-                int w = D[min_Index] + D[next]; //새로 조사한 정점까지의 거리 = V_min까지의 거리+ 가중치
-                //만약 기존 최단 거리가 새로 조사한 최단거리보다 크면 갱신
-
+                int w = D[min_Index] + D[next];
                 if (w < D[min_Index])
                 {
                     D[next] = w;
-                    parent[next] = min_Index; //출발 정점으로부터의 최단거리 = 새로 나온 거리
-
+                    parent[next] = min_Index;
                }
             }
-
         }
-
         return D;
     }
-    '''
+'''
     
     
     이미 방문했거나 연결되지 않은 정점을 'if'문을 이용하여 스킵한 뒤, 새로 조사한 정점까지의 길이를 조사한다. 
