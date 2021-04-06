@@ -57,11 +57,11 @@ public interface ShortestPath {
                 if (i == j) {
                     G[i][j] = element;
                 } else {
-                    int random = (int) (Math.random() * 4);
+                    int random = (int) (Math.random() * 3);
                     if (random == 0) {
                         element = Integer.MAX_VALUE;
                     } else {
-                        element = (int) (Math.random() * 9) + 1;
+                        element = (int) (Math.random() * 49) + 1;
                     }
                     G[i][j] = element;
                     G[j][i] = element;
@@ -71,9 +71,9 @@ public interface ShortestPath {
 
 그래프 `G`를 인접행렬로 나타내기 위해 `n` by `n` 2차원 배열을 선언한다.
 그래프 `G`는 무방향 그래프이므로, 대칭행렬로 나타내주기 위해 `G[i][j]`와 `G[j][i]`에 같은값인 난수를 발생해 넣어준다.
-그리고 직접 연결되어 있는 정점을 제외하고는 모두 무한대로 나타내기 위해 변수 `random`에 0부터 4까지의 난수가 발생되도록 했다.
-`random`이 0일 때만 `Integer.MAX_VALUE`를 넣어 무한대를 표현하고, 따라서 1/5 확률로 직접 두 점이 연결되어 있지 않게 된다.
-`random`이 0이 아닐때, 1부터 10의 난수를 넣어 직접 연결된 두 점의 사이의 거리를 표현했다.
+그리고 직접 연결되어 있는 정점을 제외하고는 모두 무한대로 나타내기 위해 변수 `random`에 0부터 3까지의 난수가 발생되도록 했다.
+`random`이 0일 때만 `Integer.MAX_VALUE`를 넣어 무한대를 표현하고, 따라서 1/4 확률로 직접 두 점이 연결되어 있지 않게 된다.
+`random`이 0이 아닐때, 1부터 50의 난수를 넣어 직접 연결된 두 점의 사이의 거리를 표현했다.
 
 ```java
         Dijkstra dijkstra = new Dijkstra();
@@ -98,7 +98,7 @@ public interface ShortestPath {
 따라서 `Dijkstra` 알고리즘을 수행하기 전과 후에 각각 `startTime`, `endTime`이라는 변수에 저장해, 두 변수의 차를 이용하여 프로그램이 수행하는데 걸리는 시간 `processTime`을 계산한다.
 계산한 `processTime`을 `System.out.printf()` 메소드를 이용해 출력한다.
 
-## Dijkstra.java
+### Dijkstra.java
 
 #### 1번 설명 (최종민 구현)
 
@@ -116,7 +116,7 @@ public interface ShortestPath {
 `init()` 메소드를 호출해 `init()`에서 만들어진 배열의 주소를 `D`가 가리키게 한다.
 
 
-#### 2번,3번 설명(이채원 구현)
+#### 2번, 3번 설명(이채원 구현)
 
 ```java
 
