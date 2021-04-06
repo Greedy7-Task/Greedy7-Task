@@ -34,6 +34,6 @@ public class Main {
 
         int endTime = (int) System.currentTimeMillis();
         int processTime = endTime - startTime;
-        System.out.printf("수행 시간: %d sec, %d ms",processTime/1000, processTime % 1000);
+        System.out.printf("수행 시간: %d sec, %d ms", processTime / 1000, processTime % 1000);
     }
 }
