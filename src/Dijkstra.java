@@ -28,55 +28,23 @@ public class Dijkstra implements ShortestPath {
 
             for (int next = 0; next < vertex; next++)
             {
-/*
+
+
                 if (!visited[next] || INF == D[next])
                     continue;
                 // 이미 방문했거나 연결되지 않은 정점 스킵
 
                 //새로 조사한 정점의 최단 거리 계산
-                int w = D[min_Index] + G[min_Index][next]; //새로 조사한 정점까지의 거리 = V_min까지의 거리+ 가중치
+                int w = D[min_Index] + D[next]; //새로 조사한 정점까지의 거리 = V_min까지의 거리+ 가중치
                 //만약 기존 최단 거리가 새로 조사한 최단거리보다 크면 갱신
 
                 if (w < D[min_Index])
                 {
                     D[next] = w;
-                    parent[next] = min_Index;
-                   /*
-                    D[next] = min_Index; //출발 정점으로부터의 최단거리 = 새로 나온 거리
+                    parent[next] = min_Index; //출발 정점으로부터의 최단거리 = 새로 나온 거리
 
                }
             }
-            */
-
-
-                //연결되지 않은 정점
-                if (G[min_Index][next] == -1)
-                    continue;
-                //이미 방문한 정점
-                if (!visited[next])
-                    continue;
-
-                // 새로 조사된 정점의 최단 거리 계산
-                int w = D[min_Index] + G[min_Index][next];
-                if (w < D[next]) {
-                    D[next] = w;
-                    parent[next] = min_Index;
-                }
-            }
-        }
-    return D;
-    }
-}
-
-
-/*
-            for (int j = 0; j < vertex; j++)
-                if (!visited[j] && G[min_Index][j] != 0 && D[min_Index] + G[min_Index][j] < D[j]) {
-                    D[j] = D[min_Index] + G[min_Index][j];
-                }
-
- */
-
 
         }
 
