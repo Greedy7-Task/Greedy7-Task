@@ -144,7 +144,7 @@ while (true) {
 
 
 
-### 4번 설명(김민지 구현)
+#### 4번 설명(김민지 구현)
 
 '''java
  for (int next = 0; next < vertex; next++)
@@ -155,19 +155,14 @@ while (true) {
                 if (w < D[min_Index])
                 {
                     D[next] = w;
-                    parent[next] = min_Index;
-               }
-            }
-        }
-        return D;
-    }
+                    parent[next] = min_Index
 '''
     
     
-    이미 방문했거나 연결되지 않은 정점을 'if'문을 이용하여 스킵한 뒤, 새로 조사한 정점까지의 길이를 조사한다. 
-    새로 조사한 정점인 'w'의 최소 거리 계산을 출발점으로부터 경유하는 점까지의 거리인 'D[min_Index]'와 경유하는 점부터 
-    새로 조사한 정점까지의 거리인 'D[next]', 가중치를 더해 계산한다. 
-    그 후, 기존 최단 거리가 새로 조사한 최단거리보다 크다면 갱신한다. 
+이미 방문했거나 연결되지 않은 정점을 'if'문을 이용하여 스킵한 뒤, 새로 조사한 정점까지의 길이를 조사한다. 
+새로 조사한 정점인 'w'의 최소 거리 계산을 출발점으로부터 경유하는 점까지의 거리인 'D[min_Index]'와 경유하는 점부터 
+새로 조사한 정점까지의 거리인 'D[next]', 가중치를 더해 계산한다. 
+그 후, 기존 최단 거리가 새로 조사한 최단거리보다 크다면 갱신한다. 
 
 
 
@@ -224,7 +219,7 @@ while (true) {
 
 ![](https://postfiles.pstatic.net/MjAyMTA0MDZfMjMy/MDAxNjE3NzEzMzAxODQz.E_xlE5ygjEN_46RNBRxrFNBAmsbrmBFqBTpxAZbdjfAg.NFXTRsCZem3Tm4ARtfn46YbFRlyxSrP1cXq0MBx5H1og.PNG.codnjs060/image.png?type=w773)
 
-위의 그래프는 `O(n^2)` (n>0)의 형태로 표현된다.
+위의 그래프는 `O(n^2)`의 형태로 표현된다.
 
 
 
