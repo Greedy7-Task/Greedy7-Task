@@ -7,6 +7,7 @@ public class Dijkstra implements ShortestPath {
         int vertex = G.length;
         int[] D = init(vertex, s);
         boolean[] visited = new boolean[vertex];
+        int[] parent = new int[vertex];
 
         // IntStream.of(D).anyMatch(x -> x == INF)
         while (true) {
@@ -23,9 +24,30 @@ public class Dijkstra implements ShortestPath {
             visited[min_Index] = true;
 
             // 4. 최단거리 갱신
-            for (int i = 0; i < vertex; i++) {
 
-                if (!visited[i] && INF > D[i])
+
+            for (int next = 0; next < vertex; next++)
+            {
+                //연결되지 않은 정점
+                if (G[min_Index, next] == -1)
+                    continue;
+                //이미 방문한 정점
+                if (!visited[next])
+                    continue;
+
+                // 새로 조사된 정점의 최단 거리 계산
+                int w = D[min_Index] + G[min_Index, i];
+                if (w < D[i]) {
+                    D[i] = w;
+                    parent[i] = min_Index;
+                }
+            }
+        }
+    }
+}
+
+                /*
+                if (!visited[i] || INF == D[i])
                     continue;
                 // 이미 방문했거나 연결되지 않은 정점 스킵
 
@@ -40,6 +62,8 @@ public class Dijkstra implements ShortestPath {
 
                }
             }
+            */
+                 */
 /*
             for (int j = 0; j < vertex; j++)
                 if (!visited[j] && G[min_Index][j] != 0 && D[min_Index] + G[min_Index][j] < D[j]) {
